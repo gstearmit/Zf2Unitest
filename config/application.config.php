@@ -10,9 +10,11 @@ return array(
     'modules' => array(
         'Application', 
     	'ZendDeveloperTools',
+		'Users',
+		'UsersACL',
 		'Album',
 		'AlbumRest',
-    		'ZfDeals',
+    	'ZfDeals',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
