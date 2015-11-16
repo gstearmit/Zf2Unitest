@@ -44,7 +44,8 @@ return array(
     	'/register-user',
     		//Rest SYS-MONEY POINT AND MONEY-POLO
     	'/login-money-point',   // retunr ackToken, Input: Key/Merchen/passSecRet
-    	'/register-money-point'				
+    	'/register-money-point',
+    		//veryfile				
     		 
     )
 );
