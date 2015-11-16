@@ -1,7 +1,7 @@
 <?php
 /**
  * this class will be used to store the authenticated session
- * @author avadheshmishra
+ * @author Gsteamit
  *
  */
 namespace Users\Model;

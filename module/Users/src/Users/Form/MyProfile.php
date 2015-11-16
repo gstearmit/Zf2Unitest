@@ -2,7 +2,7 @@
 
 /**
  * ClientForm class
- * @author Display Name <osscube(Naveen Kumar)>
+ * @author Display Name <gstearmit(Hoang Phuc)>
  * Class to create client form
  */
 namespace Users\Form;
@@ -15,7 +15,7 @@ use Zend\Form\Form;
  * @category ManageClient
  * @package Form
  *         
- * @author Display Name <osscube(Naveen Kumar)>
+ * @author Display Name <gstearmit(Hoang Phuc)>
  */
 class MyProfile extends Form
 {

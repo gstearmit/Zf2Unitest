@@ -27,7 +27,7 @@ class UserController extends AbstractActionController
     /**
      * Login Form Action
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object ViewModel
@@ -131,7 +131,7 @@ class UserController extends AbstractActionController
     /**
      * Change Password Action
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object ViewModel
@@ -198,7 +198,7 @@ class UserController extends AbstractActionController
     /**
      * Forgot Password Action
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object ViewModel
@@ -282,7 +282,7 @@ class UserController extends AbstractActionController
     /**
      * Reset Password Action
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object ViewModel
@@ -363,7 +363,7 @@ class UserController extends AbstractActionController
     /**
      * Password Reset Confirmation Action
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object ViewModel
@@ -382,7 +382,7 @@ class UserController extends AbstractActionController
     /**
      * Logout Action
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object ViewModel
@@ -401,7 +401,7 @@ class UserController extends AbstractActionController
     /**
      * Function for getting the Auth Services
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object AuthService
@@ -416,7 +416,7 @@ class UserController extends AbstractActionController
     /**
      * Function for getting the Session Storage Services
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Object AuthService
@@ -431,7 +431,7 @@ class UserController extends AbstractActionController
     /**
      * Function for getting the forgot password template
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
      * @access Public
      * @return Ambigous <string, \Zend\Filter\mixed, mixed>

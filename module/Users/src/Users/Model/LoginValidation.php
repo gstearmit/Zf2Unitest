@@ -3,7 +3,7 @@
 /**
  * LoginValidation class
  *
- * @author Display Name <osscube(Kaushal Kishore)>
+ * @author Display Name <gstearmit(Hoang Phuc)>
  * Used to add validator on login form
  */
 namespace Users\Model;
@@ -19,7 +19,7 @@ use Zend\InputFilter\InputFilterInterface;
  * @category Login
  * @package Model
  *         
- * @author Display Name <osscube(Kaushal Kishore)>
+ * @author Display Name <gstearmit(Hoang Phuc)>
  */
 class LoginValidation implements InputFilterAwareInterface
 {

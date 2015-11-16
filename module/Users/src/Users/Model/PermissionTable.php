@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @author tarunsinghal
+ * @author Hoang phuc
  * @desc To Set/Get Permission
  */
 namespace Users\Model;

@@ -99,7 +99,7 @@ class UsersTable extends AbstractTableGateway
             } else {
                 return false;
             }
-        } catch (\Exception $e) {
+        } catch (  \Exception $e) {
             throw new \Exception($e->getPrevious()->getMessage());
         }
     }
@@ -146,7 +146,7 @@ class UsersTable extends AbstractTableGateway
      * Fetch super admins list
      *
      * @access public
-     * @author Arvind Singh
+     * @author Hoang phuc
      * @param array $where
      *            // Conditions
      * @param array $columns
@@ -200,7 +200,7 @@ class UsersTable extends AbstractTableGateway
      * Update super admin details
      *
      * @access public
-     * @author Arvind Singh
+     * @author Hoang phuc
      * @param array $data
      *            // Data
      * @param array $where

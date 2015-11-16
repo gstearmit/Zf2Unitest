@@ -2,7 +2,7 @@
 
 /**
  * LoginForm class
- * @author Display Name <osscube(Kaushal Kishore)>
+ * @author Display Name <gstearmit(Hoang Phuc)>
  * Class to create login form
  */
 namespace Users\Form;
@@ -15,7 +15,7 @@ use Zend\Form\Form;
  * @category Login
  * @package Form
  *         
- * @author Display Name <osscube(Kaushal Kishore)>
+ * @author Display Name <gstearmit(Hoang Phuc)>
  */
 class ResetPasswordForm extends Form
 {
