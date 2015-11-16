@@ -36,8 +36,15 @@ return array(
         '/users/reset-password',
         '/users/password-reset-confirmation',
     	'/users/change-password',	
-    		//Album
+    		//Album + Restfull Album
     	'/album',	
-    	'/album-rest'	
+    	'/album-rest',
+    		// Rest WEB USER SYSTEM USER
+    	'/login-user',
+    	'/register-user',
+    		//Rest SYS-MONEY POINT AND MONEY-POLO
+    	'/login-money-point',   // retunr ackToken, Input: Key/Merchen/passSecRet
+    	'/register-money-point'				
+    		 
     )
 );
