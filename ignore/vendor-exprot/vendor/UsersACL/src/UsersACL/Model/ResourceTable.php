@@ -14,7 +14,7 @@ class ResourceTable extends AbstractTableGateway
     /**
      * Constructor for the Resource Table
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param Adapter $adapter            
      */
     public function __construct(Adapter $adapter)
@@ -27,7 +27,7 @@ class ResourceTable extends AbstractTableGateway
     /**
      * Function for getting all the resources
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @throws \Exception
      * @return unknown
      */

@@ -29,7 +29,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function Set Service Locator
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @see \Zend\ServiceManager\ServiceLocatorAwareInterface::setServiceLocator()
      */
     public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
@@ -41,7 +41,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * (non-PHPdoc)
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @see \Zend\ServiceManager\ServiceLocatorAwareInterface::getServiceLocator()
      */
     public function getServiceLocator()
@@ -52,7 +52,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for initialize the ACL Function
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      */
     public function initAcl()
     {
@@ -71,7 +71,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function isAccessAllowed
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param integer $role            
      * @param integer $resource            
      * @param integer $permission            
@@ -91,7 +91,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for adding the roles
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @return \UsersACL\Utility\Acl
      */
     protected function _addRoles()
@@ -112,7 +112,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for adding the resources
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @return \UsersACL\Utility\Acl
      */
     protected function _addResources()
@@ -139,7 +139,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for adding the Role Resouces
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @return \UsersACL\Utility\Acl
      */
     protected function _addRoleResources()
@@ -164,7 +164,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for getting all the roles
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      */
     protected function _getAllRoles()
     {
@@ -175,7 +175,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for getting all the resources
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      */
     protected function _getAllResources()
     {
@@ -186,7 +186,7 @@ class Acl extends ZendAcl implements ServiceLocatorAwareInterface
     /**
      * Function for getting all the permissions
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      */
     protected function _getRolePermissions()
     {

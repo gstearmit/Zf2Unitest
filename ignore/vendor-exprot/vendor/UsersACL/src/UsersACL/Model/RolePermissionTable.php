@@ -14,7 +14,7 @@ class RolePermissionTable extends AbstractTableGateway
     /**
      * Constructor for RolePermission
      * 
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param Adapter $adapter            
      */
     public function __construct(Adapter $adapter)
@@ -27,7 +27,7 @@ class RolePermissionTable extends AbstractTableGateway
     /**
      * Function for getting role permissions
      * 
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @return unknown
      */
     public function getRolePermissions()

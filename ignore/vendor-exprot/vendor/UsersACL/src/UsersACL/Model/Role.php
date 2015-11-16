@@ -14,7 +14,7 @@ class Role extends AbstractTableGateway
     /**
      * Constructor for Role
      * 
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param Adapter $adapter            
      */
     public function __construct(Adapter $adapter)

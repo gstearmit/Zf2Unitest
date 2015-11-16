@@ -14,7 +14,7 @@ class PermissionTable extends AbstractTableGateway
     /**
      * Constructor for the Permission Table
      * 
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param Adapter $adapter            
      */
     public function __construct(Adapter $adapter)
@@ -27,7 +27,7 @@ class PermissionTable extends AbstractTableGateway
     /**
      * Function for getting the Resource Permissions
      * 
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param
      *            Integer
      * @throws Exception

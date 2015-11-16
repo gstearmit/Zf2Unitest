@@ -14,7 +14,7 @@ class UserRole extends AbstractTableGateway
     /**
      * Constructor for the UserRole Table
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param Adapter $adapter            
      */
     public function __construct(Adapter $adapter)
@@ -27,7 +27,7 @@ class UserRole extends AbstractTableGateway
     /**
      * Function for getting the user roles
      *
-     * @author Kaushal Kishore <kaushal.rahuljaiswal@gmail.com>
+     * @author Hoang Phuc <gstearmit@gmail.com>
      * @param array $where            
      * @param array $columns            
      * @param string $orderBy            
