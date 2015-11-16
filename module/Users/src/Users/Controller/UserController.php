@@ -91,6 +91,7 @@ class UserController extends AbstractActionController
                                 ->write($data['userName']);
                             $session->offsetSet('userId', $userDetails['id']);
                             $session->offsetSet('userEmail', $data['userName']);
+                              
                         } else {
                             // //// Destroy the Session and redirect to Login
                             $message['error'] = LoginMessages::ACCOUNT_NOT_ACTIVE;
@@ -194,6 +195,39 @@ class UserController extends AbstractActionController
         ));
         return $viewModel;
     }
+    
+    /**
+     * dashboarduser User Action
+     *
+     * @author Hoang Phuc <gstearmit@gmail.com>
+     * @package Users
+     * @access Public
+     * @return Object ViewModel
+     */
+    public function dashboarduserAction()
+    {
+    	$session = new Container('User');
+    	$message = array();
+    	 
+    	if (! $session->offsetExists('userId')) {
+    		$message['error'] = LoginMessages::NOT_LOGIN_ACCESS;
+    		$this->flashMessenger()->addMessage($message);
+    		return $this->redirect()->toRoute('users');
+    	}
+    	$viewModel = new ViewModel();
+    	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
+    	$userData = $userTable->getUsers(); // array( )
+    	
+    	echo "<pre>";
+    	print_r($userData);
+    	echo "</pre>";
+    	
+    	$viewModel->setVariables(array(
+    			'userlist' => $userData
+    	));
+    	return $viewModel;
+    }
+    
 
     /**
      * Forgot Password Action

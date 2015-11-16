@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS `permission` (
   `permission_name` varchar(45) NOT NULL,
   `resource_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
--- Dumping data for table zf2unitest.permission: ~6 rows (approximately)
+-- Dumping data for table zf2unitest.permission: ~7 rows (approximately)
 /*!40000 ALTER TABLE `permission` DISABLE KEYS */;
 INSERT INTO `permission` (`id`, `permission_name`, `resource_id`) VALUES
 	(1, 'index', 1),
@@ -81,7 +81,8 @@ INSERT INTO `permission` (`id`, `permission_name`, `resource_id`) VALUES
 	(6, 'manager', 1),
 	(7, 'employee', 1),
 	(8, 'customer', 1),
-	(9, 'guest', 1);
+	(9, 'guest', 1),
+	(12, 'dashboarduser', 3);
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 
 
@@ -122,15 +123,16 @@ CREATE TABLE IF NOT EXISTS `role` (
   `role_name` varchar(45) NOT NULL,
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table zf2unitest.role: ~4 rows (approximately)
+-- Dumping data for table zf2unitest.role: ~5 rows (approximately)
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
 INSERT INTO `role` (`rid`, `role_name`, `status`) VALUES
 	(1, 'Manager', 'Active'),
 	(2, 'Employee', 'Active'),
 	(3, 'Customer', 'Active'),
-	(4, 'Guest', 'Active');
+	(4, 'Guest', 'Active'),
+	(5, 'MoneyPoint', 'Active');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 
 
@@ -140,9 +142,9 @@ CREATE TABLE IF NOT EXISTS `role_permission` (
   `role_id` int(10) unsigned NOT NULL,
   `permission_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table zf2unitest.role_permission: ~7 rows (approximately)
+-- Dumping data for table zf2unitest.role_permission: ~8 rows (approximately)
 /*!40000 ALTER TABLE `role_permission` DISABLE KEYS */;
 INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
 	(1, 1, 1),
@@ -151,7 +153,8 @@ INSERT INTO `role_permission` (`id`, `role_id`, `permission_id`) VALUES
 	(11, 2, 7),
 	(12, 3, 8),
 	(13, 4, 9),
-	(14, 1, 7);
+	(14, 1, 7),
+	(15, 1, 12);
 /*!40000 ALTER TABLE `role_permission` ENABLE KEYS */;
 
 
@@ -167,16 +170,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `last_signed_in` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table zf2unitest.users: ~4 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `password`, `login_attempts`, `login_attempt_time`, `first_name`, `last_name`, `status`, `last_signed_in`) VALUES
-	(1, 'gstearmit@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Supper', 'Admin', 'Active', NULL),
+	(1, 'gstearmit@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Manger', 'Admin', 'Active', NULL),
 	(2, 'mohit.singh@osscube.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Mohit', 'Kumar', 'Active', NULL),
 	(3, 'arvind.singh@osscube.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Arvind', 'Singh', 'Active', NULL),
 	(4, 'tarun.singhal@osscube.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Tarun', 'Singhal', 'Active', NULL),
-	(5, 'phuca4@gmail.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Hoang Phuc', 'Cong', 'Active', NULL);
+	(5, 'phuca4@gmail.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Hoang Phuc', 'Cong', 'Active', NULL),
+	(6, 'moneypolodigital@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Supper', 'Admin', 'Active', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -186,9 +190,9 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `user_id` int(10) unsigned NOT NULL,
   `role_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table zf2unitest.user_role: ~4 rows (approximately)
+-- Dumping data for table zf2unitest.user_role: ~5 rows (approximately)
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
 INSERT INTO `user_role` (`id`, `user_id`, `role_id`) VALUES
 	(1, 1, 1),
