@@ -1,0 +1,255 @@
+<link rel="stylesheet" href="/css/admin-style.css"/>
+      
+﻿<?php  
+// echo "<pre>";
+// print_r($userData);
+// echo "</pre>";
+?>
+<?php 
+ 
+$paginator =  $userData; 
+?>
+<div class="col-md-12 col-sm-12 col-xs-8">
+<?php 
+/*
+if($err){ $ii=0; $arr=array(); $arr[0]='supperadmin';$arr[1]='admin';$arr[2]='adsmanager';$arr[3]='member';?>
+
+   <?php // add at the end of the file after the table
+echo $this->paginationControl(
+    // the paginator object
+    $paginator,
+    // the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
+    'sliding',
+    // the partial to use to render the control
+    array('partial/admin__menber_paginator.phtml', 'Admin'),
+    // the route to link to when a user clicks a control link
+    array(
+        'route' => 'admin'
+    )
+);
+*/
+?>
+
+<table class="table table-bordered" id="table-dstaikhoan">
+                  <tr>
+                    <th class="title-1">ID</td>
+                    <th class="title-2" style="width:250px;">Username</td>
+                    <th class="title-3" style="width:250px;">First Last Name</td>
+                    <th class="title-6">Date</td>
+                    <th class="title-7">Email</td>
+					<th class="title -12">Last signed in</th>
+					<th class="title-11">Status</td>
+                    <th class="title-8">Pause/ctive</td>		
+					
+                    <th class="title-10">Action</td>
+                  </tr>
+<?php
+$ii = 0; 
+foreach($paginator as $key=>$value){ 
+	if($value['id']==6)continue;
+?>
+ 
+                  <tr <?php if($ii%2==0){echo "class='hightlight'";} $ii++;?>>
+                    <td><?php echo $this->escapeHtml($value['id']);?></td>
+                    <td  data-title="User-<?php echo $this->escapeHtml($value['email']);?>" class="col-md-4 col-sm-4 col-xs-12 numeric" >
+                        <?php /* if($value['avatar']) { ?>
+                          <a href="#"><img src="<?php //echo $value['avatar']; ?>" style="width: 100px;height:80px;" alt=""></a>
+                       <?php }else { ?>
+                          <img src="<?php echo WEBPATH.'/img/none_user.jpg' ; ?>" style="width: 100px;height:80px;" alt="">
+                       <?php } */ ?>
+                        <div class="infor_user">
+		                  <p>Name: <span><?php echo $this->escapeHtml($value['first_name']).' '.$this->escapeHtml($value['last_name']);?></span></p>
+		                  <p>Mail: <span><?php echo $this->escapeHtml($value['email']);?></span></p>
+		                  <?php
+		                  /*
+		                  <p>Channel: <span><?php echo $this->escapeHtml($value->channel_code);?></span></p>
+		                  <p class="website" id="website<?php echo $value['id'];?>" data-website="<?php echo $value->website;?>" >Website: 
+		                        <span ><?php echo $value->website;?></span>
+		                        <div class="website_button" style="display:none;">
+			                     <?php if($value->website){?>
+			                       <span class="btn btn-primary   website_add"     onclick="function_web('website<?php echo $value['id'];?>');">Add Website</span>
+			                     <?php }else { ?>
+			                       <span class="btn btn-primary   website_edit"   onclick="function_web('website<?php echo $value['id'];?>');">Edit Website</span>
+			                     <?php }?>
+		                       </div>
+		                  </p>
+		                  <p title="<?php  echo $this->escapeHtml($value->vast_goole);?>">Vast Google: <span> <?php if($value->vast_goole) echo substr($value->vast_goole,0,20).'......';?></span></p>
+		                  */ ?>
+		               </div><!-- infor_user -->   
+                    </td>
+                    <td><?php echo $this->escapeHtml($value['first_name']).' '.$this->escapeHtml($value['last_name']);?></td>
+
+                    <td><?php echo $this->escapeHtml($value['last_signed_in']);?></td>
+                   <td><?php echo $this->escapeHtml($value['email']); // 'Active','Inactive'?></td>
+				  <td class="folder-server"><?php  //if($value->status ==''){ echo $this->escapeHtml($value->externalsv_id);}else echo "None";?></td>
+                    <td >
+						<form action="" method="POST" class="edit-user">
+							<?php if($value['status'] =='Active'){ echo $this->escapeHtml('Active');} else if($value['status'] =='Inactive') echo "Inactive";?>     
+							<button class="btn btn-primary">Change</button>
+
+						</form>
+					</td>
+					
+				   
+				   <td class="folder-user"><?php  /* if($value['status'] =='Active'){ echo $this->escapeHtml('Active');} else if($value['status'] =='Inactive') echo "Inactive"; */ ?> <!--  <button class="btn btn-primary">change</button> --> </td>
+					
+
+                    <td>
+                      <span class="viewspan  btn btn-primary delete-video" style="float:right;"  id="<?php echo $this->escapeHtml($value['id']);?>" onClick="deleteuser('<?php echo $value['id'];?>');">Delete User
+					  </span> <!-- data-toggle="modal" data-target="#Modal-delete" -->
+					  </br>
+					     <span class="viewspan  btn btn-primary " style="float:right;"  value="<?php echo $this->escapeHtml($value['id']);?>">
+					     <a href="<?php echo WEBPATH.'/admin/videoofuser/'.$value['id'];?>"> All Video </a>  
+					      </span>	
+					  </br>
+					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
+					     <a href="<?php echo WEBPATH.'/admin/adminchangeavatar/'.$value['id'];?>"> Change avatar </a>  
+					      </span>
+					      
+					      
+					      </br>
+					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
+					         <a href="<?php echo WEBPATH.'/admin/settinginfor/	'.$value['id'];?>"> Setting Web+Vast</a>  
+					      </span>
+					      
+					  <!-- 
+					     </br>
+					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
+					     <a href="<?php echo WEBPATH.'/admin/addwebsite/'.$value['id'];?>"> Add  Website </a>  
+					      </span>
+					      
+					      </br>
+					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
+					     <a href="<?php echo WEBPATH.'/admin/addvastgoogle/'.$value['id'];?>"> Add Vast </a>  
+					      </span>
+					      
+					     </br>
+					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
+					        <a href="<?php echo WEBPATH.'/admin/addminchangepass/	'.$value['id'];?>"> Change Pass </a>  
+					      </span>
+					   -->    
+                    </td>
+                  </tr>                
+                
+          
+
+<?php    }
+  
+?>
+    </table>
+    
+    <?php 
+/*
+// add at the end of the file after the table
+echo $this->paginationControl(
+    // the paginator object
+    $paginator,
+    // the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
+    'sliding',
+    // the partial to use to render the control
+    array('partial/admin__menber_paginator.phtml', 'Admin'),
+    // the route to link to when a user clicks a control link
+    array(
+        'route' => 'admin'
+    )
+);
+*/
+?>
+    
+    
+<div class="modal fade " id="Modal-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small">
+	<div class="modal-content">
+	  <div class="modal-header ">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		<h4 class="alert alert-danger" id="myModalLabel" style="margin-right: 15px; margin-left:15px;">Do you want delete this user?</h4>
+	  </div>
+	  <div class="modal-body ">
+		<form id="video-delete">
+			 <div style="width:200px;margin:0 auto;">				
+				 <input class="video-id" type="hidden" name="id" value="" />												
+				 <button type="button-check" class="check-delete button-check btn btn-primary" style="margin-right:15px;">Yes</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left:15px;">No</button>
+			 </div>
+		</form>
+		<div class="result-delete"></div>
+	  </div>
+	</div>
+  </div>
+</div>
+<script>
+function deleteuser(id)
+{
+	$('form#video-delete>div>input.video-id').val(id);
+	$('#Modal-delete').modal('show') 
+ }
+
+
+
+$('button.delete-video').click(function(){
+	$('form#video-delete>div>input.video-id').val($(this).val());
+});
+$('form#video-delete>div>button.check-delete').click(function(){
+var seriecode=$('form#video-delete>div>input.video-id').val(); 
+var url_post = '<?php echo WEBPATH;?>';
+
+$.ajax({
+		type: "POST",
+		url: url_post + "/admin/delete",
+		
+		data: {id:seriecode},
+		beforeSend : function(){
+			//console.log("testing");
+			$('.choose-content').html('<img src="<?php echo WEBPATH;?>"/img/loading.gif">');
+		},
+		success: function(data){
+			$('.result-delete').html('<div class="alert alert-success">Successfully removed!</div> ');
+				location.reload();
+		}
+	});
+	return false;
+
+});
+$('form.edit-user').submit(function(){
+	var $form=$(this);
+	//var selec=$('edit-select').val();
+	//console.log($form);
+	var url_post = '<?php echo WEBPATH;?>';
+   $.ajax({
+	   type: "POST",
+	   url:  url_post +"/admin/edit",
+	   data: $form.serialize(),
+	   success: function(data){
+					alert(data);
+					location.reload();
+			   }
+   });
+   return false;
+});
+
+</script>	
+
+<script>
+$(document).ready(function(){
+    $(".website").hover(function(){
+           $(this).css("background-color", "yellow");
+           $(this).addClass('website');
+           //$(this).html('');
+           
+        }, function(){
+            /*
+           $(this).css("background-color", "pink");
+           $(this).removeClass( "website" )
+           $(this).html('');
+            */
+    });
+});
+
+function function_web()
+{
+	alert("View alert"); 
+}
+</script>
+
+ 
+	</div>

@@ -3,6 +3,7 @@
  * This makes our life easier when dealing with paths. Everything is relative
  * to the application root now.
  */
+define('ROOT_PATH', dirname(__DIR__));
 define('REQUEST_MICROTIME', microtime(true));
 chdir(dirname(__DIR__));
 
@@ -14,6 +15,8 @@ if (php_sapi_name() === 'cli-server') {
     }
     unset($path);
 }
+
+include 'defineMo.php';
 
 // Setup autoloading
 require 'init_autoloader.php';

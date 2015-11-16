@@ -204,7 +204,7 @@ class UserController extends AbstractActionController
      * @access Public
      * @return Object ViewModel
      */
-    public function dashboarduserAction()
+    public function dashboardUserAction()
     {
     	$session = new Container('User');
     	$message = array();
@@ -217,13 +217,11 @@ class UserController extends AbstractActionController
     	$viewModel = new ViewModel();
     	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
     	$userData = $userTable->getUsers(); // array( )
-    	
-    	echo "<pre>";
-    	print_r($userData);
-    	echo "</pre>";
-    	
+//     	echo "<pre>";
+//     	print_r($userData);
+//     	echo "</pre>";
     	$viewModel->setVariables(array(
-    			'userlist' => $userData
+    			'userData' => $userData
     	));
     	return $viewModel;
     }
