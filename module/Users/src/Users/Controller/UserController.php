@@ -33,7 +33,7 @@ class UserController extends AbstractActionController
      * @return Object ViewModel
      */
     public function indexAction()
-    { 
+    {
         $config = $this->getServiceLocator()->get('Config');
         $userPassword = $this->getServiceLocator()->get('Users\Service\UserEncryption');
         $session = new Container('User');

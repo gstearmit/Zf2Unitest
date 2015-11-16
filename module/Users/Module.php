@@ -71,15 +71,9 @@ class Module
         $em = $app->getEventManager();
         $sm = $app->getServiceManager();
         $config = $sm->get('Config');
-		
-// 		echo "<pre>";
-// 		print_r($config);
-// 		echo "</pre>";
-// 		die();
         
-       
+        $list = $config['whitelist'];
         $auth = $sm->get('AuthService');
-		$list = $config['whitelist'];
         
         $em->attach(MvcEvent::EVENT_ROUTE, function ($e) use($list, $auth, $sm)
         {
@@ -103,8 +97,6 @@ class Module
             if ($auth->hasIdentity()) {
                 return;
             }
-			
-			
             
             // Redirect to the user login page, as an example
             $router = $e->getRouter();
@@ -119,7 +111,5 @@ class Module
             
             return $response;
         }, - 100);
-		
-		
     }
 }
