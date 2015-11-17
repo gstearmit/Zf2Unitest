@@ -442,6 +442,13 @@ class UsersTable extends AbstractTableGateway
     	return true;
     }
     
-    
+    public function delete($id)
+    {
+    	$id = (int)$id;
+    	$sql= 'DELETE FROM users
+               WHERE id ='.$id.';';
+    	return  $this->feed_sql($sql);
+    	 
+    }
   
 }

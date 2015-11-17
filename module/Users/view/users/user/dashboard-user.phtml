@@ -185,21 +185,21 @@ $('button.delete-video').click(function(){
 	$('form#video-delete>div>input.video-id').val($(this).val());
 });
 $('form#video-delete>div>button.check-delete').click(function(){
-var seriecode=$('form#video-delete>div>input.video-id').val(); 
+var id=$('form#video-delete>div>input.video-id').val(); 
 var url_post = '<?php echo WEBPATH;?>';
 
 $.ajax({
 		type: "POST",
-		url: url_post + "/admin/delete",
+		url: url_post + "/user/delete",
 		
-		data: {id:seriecode},
+		data: {id:id},
 		beforeSend : function(){
 			//console.log("testing");
 			$('.choose-content').html('<img src="<?php echo WEBPATH;?>"/img/loading.gif">');
 		},
 		success: function(data){
-			$('.result-delete').html('<div class="alert alert-success">Successfully removed!</div> ');
-				location.reload();
+			$('.result-delete').html(data);
+				//location.reload();
 		}
 	});
 	return false;
@@ -212,7 +212,7 @@ $('form.edit-user').submit(function(){
 	var url_post = '<?php echo WEBPATH;?>';
    $.ajax({
 	   type: "POST",
-	   url:  url_post +"/admin/edit",
+	   url:  url_post +"/user/edit",
 	   data: $form.serialize(),
 	   success: function(data){
 					alert(data);

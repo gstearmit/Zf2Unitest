@@ -243,6 +243,38 @@ class UserController extends AbstractActionController
     	return $viewModel;
     }
     
+    
+    /**
+     * Delete User  Action 
+     * @author Hoang Phuc <gstearmit@gmail.com>
+     * @package Users
+     * @access Public
+     * @return Object ViewModel
+     */
+    public function deleteAction()
+    {
+    	$session = new Container('User');
+    	$message = array();
+    
+    	if (! $session->offsetExists('userId')) {
+    		$message['error'] = LoginMessages::NOT_LOGIN_ACCESS;
+    		$this->flashMessenger()->addMessage($message);
+    		return $this->redirect()->toRoute('users');
+    	}
+    	$set ='';
+    	$id = (int)$this->params()->fromPost('id');
+    	if(!$id) die("Error Get user");
+    	 
+    	$viewModel = new ViewModel();
+    	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
+    	 
+    	$status_delete = $userTable->delete($id);
+    	$viewModel->setVariables(array(
+    			'status' => $status_delete,
+    	));
+    	return $viewModel;
+    }
+    
     /**
      * dashboarduser User List Action
      *
