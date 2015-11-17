@@ -7,7 +7,7 @@
  * @category Complysight
  * @package Service
  *
- * @author "<osscube(Kaushal Kishore)>"
+ * @author "<Gstearm(Hoang Phuc)>"
  */
 namespace Users\Service;
 
@@ -20,7 +20,7 @@ use Zend\Crypt\Password\Bcrypt;
  * @category Complysight
  * @package Service
  *         
- * @author "<osscube(Kaushal Kishore)>"
+ * @author "<Gstearm(Hoang Phuc)>"
  */
 class UserEncryption
 {
@@ -42,7 +42,7 @@ class UserEncryption
     /**
      * Constructor
      *
-     * @author Kaushal Kishore
+     * @author Hoang phuc
      * @access public
      *        
      * @param string $method
@@ -60,7 +60,7 @@ class UserEncryption
     /**
      * Create Password
      *
-     * @author Kaushal Kishore
+     * @author Hoang phuc
      * @access public
      *        
      * @param string $password
@@ -83,7 +83,7 @@ class UserEncryption
     /**
      * Validate the user password
      *
-     * @author Kaushal Kishore
+     * @author Hoang phuc
      * @access public
      *        
      * @param string $password
@@ -109,7 +109,7 @@ class UserEncryption
 
     /**
      *
-     * @author Kaushal Kishore
+     * @author Hoang phuc
      * @param string $string            
      * @return string
      */
@@ -122,7 +122,7 @@ class UserEncryption
 
     /**
      *
-     * @author Kaushal Kishore
+     * @author Hoang phuc
      * @param string $string            
      * @return string
      */

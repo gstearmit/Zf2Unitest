@@ -82,7 +82,7 @@ INSERT INTO `permission` (`id`, `permission_name`, `resource_id`) VALUES
 	(7, 'employee', 1),
 	(8, 'customer', 1),
 	(9, 'guest', 1),
-	(12, 'dashboarduser', 3);
+	(12, 'dashboardUser', 3);
 /*!40000 ALTER TABLE `permission` ENABLE KEYS */;
 
 
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`productId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table zf2unitest.product: ~0 rows (approximately)
+-- Dumping data for table zf2unitest.product: ~1 rows (approximately)
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
 INSERT INTO `product` (`productId`, `name`, `stock`) VALUES
 	('1234', 'shop', 123);
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `resource` (
 INSERT INTO `resource` (`id`, `resource_name`) VALUES
 	(1, 'Application\\Controller\\Index'),
 	(2, 'Album\\Cotroller\\Album '),
-	(3, 'Users\\Controller\\Index');
+	(3, 'Users\\Controller\\User');
 /*!40000 ALTER TABLE `resource` ENABLE KEYS */;
 
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `role_name` varchar(45) NOT NULL,
   `status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   PRIMARY KEY (`rid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table zf2unitest.role: ~5 rows (approximately)
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
@@ -172,15 +172,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Dumping data for table zf2unitest.users: ~4 rows (approximately)
+-- Dumping data for table zf2unitest.users: ~6 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `password`, `login_attempts`, `login_attempt_time`, `first_name`, `last_name`, `status`, `last_signed_in`) VALUES
-	(1, 'gstearmit@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Manger', 'Admin', 'Active', NULL),
+	(1, 'gstearmit@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Manger', 'Gsteam', 'Active', NULL),
 	(2, 'mohit.singh@osscube.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Mohit', 'Kumar', 'Active', NULL),
 	(3, 'arvind.singh@osscube.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Arvind', 'Singh', 'Active', NULL),
 	(4, 'tarun.singhal@osscube.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Tarun', 'Singhal', 'Active', NULL),
 	(5, 'phuca4@gmail.com', 'd4cb903787695a544172af6f0af88fef583a81c8', 0, 0, 'Hoang Phuc', 'Cong', 'Active', NULL),
-	(6, 'moneypolodigital@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Supper', 'Admin', 'Active', NULL);
+	(6, 'moneypolodigital@gmail.com', 'ccfc43f716fb8c8078a2c4a0c5a8ee09aa59f0a8', 0, 0, 'Supper', 'Hoang', 'Active', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `user_id` int(10) unsigned NOT NULL,
   `role_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table zf2unitest.user_role: ~5 rows (approximately)
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;

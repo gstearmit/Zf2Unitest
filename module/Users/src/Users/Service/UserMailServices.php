@@ -22,7 +22,7 @@ class UserMailServices
      * @param array $mailOptions
      *            use mailTo,mailFrom,mailFromNickName,mailSubject,mailBody,...
      *            as options
-     * @author Kaushal
+     * @author Hoang phuc
      * @method sendMail
      * @return int
      */

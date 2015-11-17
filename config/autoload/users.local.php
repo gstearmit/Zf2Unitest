@@ -37,7 +37,7 @@ return array(
         '/users/password-reset-confirmation',
     	'/users/change-password',	
     		//Album + Restfull Album
-    	'/album',	
+    	//'/album',	
     	'/album-rest',
     		// Rest WEB USER SYSTEM USER
     	'/login-user',
