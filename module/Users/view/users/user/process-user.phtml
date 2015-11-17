@@ -1,0 +1,16 @@
+<?php 
+$status = $this->status;
+if($status == 0)
+{
+	 echo '<div class="alert alert-warning">
+		  <strong>Warning!</strong> Error 
+		</div> <a href="javascript: history.go(-1)" class="btn btn-primary backgo">Go Back</a> | <a href="/dashboard-user" class="btn btn-primary">Back All Member</a>';
+}
+if($status == 1)
+{
+	echo '<div class="alert alert-success">
+		  <strong>Success!</strong> 
+		</div> <a href="javascript: history.go(-1)" class="btn btn-primary backgo">Go Back</a> | <a href="/dashboard-user" class="btn btn-primary">Back All Member</a>';
+}
+ 
+?>

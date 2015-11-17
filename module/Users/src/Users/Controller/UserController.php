@@ -202,7 +202,49 @@ class UserController extends AbstractActionController
     }
     
     /**
-     * dashboarduser User Action
+     * processUser User is Active or Inactive Action
+     *
+     * @author Hoang Phuc <gstearmit@gmail.com>
+     * @package Users
+     * @access Public
+     * @return Object ViewModel
+     */
+    public function processUserAction()
+    {
+    	$session = new Container('User');
+    	$message = array();
+    
+    	if (! $session->offsetExists('userId')) {
+    		$message['error'] = LoginMessages::NOT_LOGIN_ACCESS;
+    		$this->flashMessenger()->addMessage($message);
+    		return $this->redirect()->toRoute('users');
+    	}
+    	$set ='';
+    	$id = (int)$this->params()->fromRoute('id');
+    	if(!$id) die("Error Get user");
+    	$op = (int)$this->params()->fromRoute('op');
+    	 
+    	 
+    	$viewModel = new ViewModel(); 
+    	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
+    	
+    	//'Active','Inactive'
+    	if($op == 0)
+    	{
+    		$set = 'Inactive'; 
+    	}else if($op == 1)
+    	{
+    		$set = 'Active'; 
+    	} 
+    	$status_change_user = $userTable->Active_or_Inactive_Users($id,$set); 
+        $viewModel->setVariables(array(
+    				'status' => $status_change_user, 
+    		));
+    	return $viewModel;
+    }
+    
+    /**
+     * dashboarduser User List Action
      *
      * @author Hoang Phuc <gstearmit@gmail.com>
      * @package Users
@@ -221,7 +263,14 @@ class UserController extends AbstractActionController
     	}
     	$viewModel = new ViewModel();
     	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
-    	$userData = $userTable->getUsers(); // array( )
+    	$userData = $userTable->getUsers(); 
+    	
+//     	foreach ($userData as $Users)
+//     	{
+// 	    	echo "<pre>";
+// 	    	print_r($Users);
+// 	    	echo "</pre>";
+//     	}	
  
         // Start Paginator Users
     	$select    = new Select();

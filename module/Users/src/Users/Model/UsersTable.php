@@ -271,14 +271,14 @@ class UsersTable extends AbstractTableGateway
         try {
             $sql = new Sql($this->getAdapter());
             $select = $sql->select()
-                ->from($this->table)
-                ->columns(array(
-                'login_attempts',
-                'login_attempt_time'
-            ))
-                ->where(array(
-                'email' => $userName
-            ));
+			                ->from($this->table)
+			                ->columns(array(
+					                'login_attempts',
+					                'login_attempt_time'
+					            ))
+			                ->where(array(
+					                'email' => $userName
+					            ));
             $statement = $sql->prepareStatementForSqlObject($select);
             $data = $this->resultSetPrototype->initialize($statement->execute())
                 ->toArray();
@@ -339,7 +339,7 @@ class UsersTable extends AbstractTableGateway
 
     /**
      *
-     * @author avadhesh mishra
+     * @author Hoang phuc
      * @param string $username            
      * @throws \Exception
      * @return array
@@ -398,6 +398,50 @@ class UsersTable extends AbstractTableGateway
         }
         return false;
     }
+    
+    
+    /*
+     * execute Sql 
+     * @param unknown $id 
+     * @return boolean
+     */
+    public function feed_sql($sql=null)
+    {
+    	if($sql== null)  return false;
+    	return  $resultSet = $this->adapter->query($sql, array(5));
+    }
+     
+    /**
+     * 'Active','Inactive' for User  after login
+     *
+     * @param unknown $id 
+     * @param unknown $set 
+     *  public function Active_or_Inactive_Users($id = 5,$set ='Inactive')
+     * @return boolean
+     */
+    public function Active_or_Inactive_Users($id,$set)
+    {
+    	try {
+    		$sql = new Sql($this->getAdapter());
+    		$update = $sql->update();
+    		$update->table($this->table);
+    		$update->set(array(
+    				'status' => $set, 
+    		));
+    		$update->where(array(
+    				'id' => $id
+    		));
+    		
+    		$statement = $sql->prepareStatementForSqlObject($update);
+    		//return var_dump( $statement);die;
+    		$result = $statement->execute();
+    		
+    	} catch (\Exception $e) {
+    		throw new \Exception($e->getPrevious()->getMessage());
+    	}
+    	return true;
+    }
+    
     
   
 }

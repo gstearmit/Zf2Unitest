@@ -51,6 +51,22 @@ return array(
                 )
             ),
         		
+        		'UserProcess' => array(
+        				'type' => 'segment',
+        				'options' => array(
+        						'route' => '/process-user[/id/:id][/op/:op]',
+        						'constraints' => array(
+        								'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+        								'id'     => '[0-9]+',
+        								'op'     => '[0-9]+',
+        						),
+        						'defaults' => array(
+        								'controller' => 'Users\Controller\User',
+        								'action' => 'index'
+        						)
+        				)
+        		),
+        		
         	'Userdashboard' => array(
         				'type' => 'segment',
         				'options' => array(

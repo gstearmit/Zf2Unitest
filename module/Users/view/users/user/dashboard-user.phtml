@@ -52,11 +52,11 @@ foreach($this->paginator as $key=>$value){
                   <tr <?php if($ii%2==0){echo "class='hightlight'";} $ii++;?>>
                     <td><?php echo $this->escapeHtml($value['id']);?></td>
                     <td  data-title="User-<?php echo $this->escapeHtml($value['email']);?>" class="col-md-4 col-sm-4 col-xs-12 numeric" >
-                        <?php /* if($value['avatar']) { ?>
+                        <?php if($value['avatar']) { ?>
                           <a href="#"><img src="<?php //echo $value['avatar']; ?>" style="width: 100px;height:80px;" alt=""></a>
                        <?php }else { ?>
                           <img src="<?php echo WEBPATH.'/img/none_user.jpg' ; ?>" style="width: 100px;height:80px;" alt="">
-                       <?php } */ ?>
+                       <?php }  ?>
                         <div class="infor_user">
 		                  <p>Name: <span><?php echo $this->escapeHtml($value['first_name']).' '.$this->escapeHtml($value['last_name']);?></span></p>
 		                  <p>Mail: <span><?php echo $this->escapeHtml($value['email']);?></span></p>
@@ -81,13 +81,15 @@ foreach($this->paginator as $key=>$value){
 
                     <td><?php echo $this->escapeHtml($value['last_signed_in']);?></td>
                    <td><?php echo $this->escapeHtml($value['email']); // 'Active','Inactive'?></td>
-				  <td class="folder-server"><?php  //if($value->status ==''){ echo $this->escapeHtml($value->externalsv_id);}else echo "None";?></td>
-                    <td >
-						<form action="" method="POST" class="edit-user">
-							<?php if($value['status'] =='Active'){ echo $this->escapeHtml('Active');} else if($value['status'] =='Inactive') echo "Inactive";?>     
-							<button class="btn btn-primary">Change</button>
-
-						</form>
+				   <td ><?php  //if($value->status ==''){ echo $this->escapeHtml($value->externalsv_id);}else echo "None";?></td>
+                    <td class="status-users">  
+                            <?php if($value['status'] =='Active'){ echo '<span  class="label label-success" >Active</span>';} else if($value['status'] =='Inactive') echo '<span  class="btn label label-warning btn-xs" >Inactive</span>';?>
+							<?php if($value['status'] =='Inactive') {?>
+							<a href="<?php echo WEBPATH.'/users/process-user/id/'.$value['id'].'/op/1';?>" class="btn btn-primary"> Change Active </a>
+							<?php }else {?>    
+							<a href="<?php echo WEBPATH.'/users/process-user/id/'.$value['id'].'/op/0';?>" class="btn btn-primary"> Change Inactive </a>      
+							   <?php }?>
+							 
 					</td>
 					
 				   
@@ -125,7 +127,7 @@ foreach($this->paginator as $key=>$value){
 					      
 					     </br>
 					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
-					        <a href="<?php echo WEBPATH.'/admin/addminchangepass/	'.$value['id'];?>"> Change Pass </a>  
+					        <a href="<?php echo WEBPATH.'/admin/addminchangepass/'.$value['id'];?>"> Change Pass </a>  
 					      </span>
 					   -->    
                     </td>
