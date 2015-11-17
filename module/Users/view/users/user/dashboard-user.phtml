@@ -45,7 +45,7 @@ echo $this->paginationControl(
                   </tr>
 <?php
 $ii = 0; 
-foreach($paginator as $key=>$value){ 
+foreach($this->paginator as $key=>$value){ 
 	if($value['id']==6)continue;
 ?>
  
@@ -138,22 +138,15 @@ foreach($paginator as $key=>$value){
 ?>
     </table>
     
-    <?php 
-/*
-// add at the end of the file after the table
-echo $this->paginationControl(
-    // the paginator object
-    $paginator,
-    // the scrolling style; see http://zf2.readthedocs.org/en/release-2.1.4/modules/zend.paginator.usage.html#rendering-pages-with-view-scripts
-    'sliding',
-    // the partial to use to render the control
-    array('partial/admin__menber_paginator.phtml', 'Admin'),
-    // the route to link to when a user clicks a control link
+ <?php // add at the end of the file after the table
+echo $this->paginationControl( 
+    $this->paginator, 
+    'Sliding', 
+    array('partial/paginatorUser.phtml', 'Userdashboard'), 
     array(
-        'route' => 'admin'
+        'route' => 'Userdashboard'
     )
 );
-*/
 ?>
     
     

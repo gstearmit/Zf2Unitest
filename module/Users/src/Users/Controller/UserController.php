@@ -17,6 +17,11 @@ use Zend\View\Renderer\PhpRenderer;
 use \Zend\View\Resolver\TemplateMapResolver;
 use Zend\Form\Annotation\Object;
 
+use Zend\Db\Sql\Select;
+use Zend\Paginator\Paginator;
+use Zend\Paginator\Adapter\Iterator as paginatorIterator;
+use Zend\Paginator\Adapter\Null as PageNull;
+
 class UserController extends AbstractActionController
 {
 
@@ -217,11 +222,30 @@ class UserController extends AbstractActionController
     	$viewModel = new ViewModel();
     	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
     	$userData = $userTable->getUsers(); // array( )
-//     	echo "<pre>";
-//     	print_r($userData);
-//     	echo "</pre>";
-    	$viewModel->setVariables(array(
-    			'userData' => $userData
+ 
+        // Start Paginator Users
+    	$select    = new Select();
+    	$page      = $this->params()->fromRoute('page') ? (int) $this->params()->fromRoute('page') : 1;
+    	$User_list    = $userTable->getUser_list('DESC');
+        // Convert Array to Paginator Users
+    	foreach ($User_list as $key => $user) :
+    	    $data[] = $user ;
+    	    /*
+    	     array(
+    	    		  'id'=>$user['id'],
+    	    		  'email'=>$user['email'],
+    	     );
+    	     */
+    	endforeach;
+    	 
+        $paginator = new Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($data));
+        $paginator->setCurrentPageNumber($page)
+                  ->setItemCountPerPage(4)
+                  ->setPageRange(3);
+    	 
+    	$viewModel->setVariables(array( 
+    			'userData' => $userData, 
+    			'paginator' => $paginator  
     	));
     	return $viewModel;
     }

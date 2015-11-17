@@ -1,13 +1,18 @@
 <?php
 namespace Users\Model;
-
-use Zend\Db\Sql\Sql;
-use Zend\Db\TableGateway\AbstractTableGateway;
-use Zend\Db\ResultSet\ResultSet;
+ 
+use Zend\Db\TableGateway\AbstractTableGateway; 
 use Zend\Db\Adapter\Adapter;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\Sql\Select;
+use Zend\Db\Sql\Sql;
 use Zend\Session\Container;
 use Zend\Db\Sql\Update;
 use Users\Service\UserEncryption;
+
+use Zend\Paginator\Adapter\DbSelect;
+use Zend\Paginator\Paginator;
+
 
 class UsersTable extends AbstractTableGateway
 {
@@ -179,9 +184,9 @@ class UsersTable extends AbstractTableGateway
             
             if ($paging) {
                 
-                $dbAdapter = new DbSelect($select, $this->getAdapter());
+                $dbAdapter = new DbSelect($select, $this->getAdapter()); 
                 $paginator = new Paginator($dbAdapter);
-                
+              
                 return $paginator;
             } else {
                 $statement = $sql->prepareStatementForSqlObject($select);
@@ -196,6 +201,37 @@ class UsersTable extends AbstractTableGateway
         }
     }
 
+    /**
+     * Get User list
+     */
+    public function getUser_list($order, $array = null,$limit= NULL)
+    {
+//     	$select = new Select();
+//     	$select->from($this->table);
+//     	//$select->order('id', $order)->limit($limit);
+    
+//     	return new \Zend\Paginator\Paginator(
+//     			new \Zend\Paginator\Adapter\DbSelect($select, $this->adapter, $this->resultSetPrototype)
+//     	);
+
+    	$select = $this->getSql()->select();
+    	$select->order('id', $order);
+    	
+    	return new \Zend\Paginator\Paginator(
+    			new \Zend\Paginator\Adapter\DbSelect($select, $this->adapter, $this->resultSetPrototype)
+    	);
+    }
+    
+    
+    public function fetchAll(Select $select = null) {
+    	if (null === $select) $select = new Select();
+    	$select->from($this->table);
+    	$resultSet = $this->selectWith($select);
+    	$resultSet->buffer(); 
+    	//$resultSet->next();
+    	return $resultSet;
+    }
+    
     /**
      * Update super admin details
      *
@@ -327,8 +363,7 @@ class UsersTable extends AbstractTableGateway
             ));
             $statement = $sql->prepareStatementForSqlObject($select);
             
-            $roles = $this->resultSetPrototype->initialize($statement->execute())
-                ->toArray();
+            $roles = $this->resultSetPrototype->initialize($statement->execute())->toArray();
             
             if (! empty($roles[0]) && is_array($roles[0])) {
                 return $roles[0];
@@ -363,4 +398,6 @@ class UsersTable extends AbstractTableGateway
         }
         return false;
     }
+    
+  
 }

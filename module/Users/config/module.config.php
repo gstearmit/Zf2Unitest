@@ -51,13 +51,14 @@ return array(
                 )
             ),
         		
-        	'user' => array(
+        	'Userdashboard' => array(
         				'type' => 'segment',
         				'options' => array(
-        						'route' => '/dashboard-user[/type/:type][/wid/:wid]',
+        						'route' => '/dashboard-user[/page/:page]',
         						'constraints' => array(
         								'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-        								'type' => '[0-9]*'
+				        				'id'     => '[0-9]+',
+				                        'page' => '[0-9]+', 
         						),
         						'defaults' => array(
         								'controller' => 'Users\Controller\User',
