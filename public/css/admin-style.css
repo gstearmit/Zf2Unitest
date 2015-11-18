@@ -191,3 +191,8 @@ body{background:#e0dddd;}
 ul.menu-ads{list-style-type:none;background: #EE924A;
 height: 40px;}
 ul.menu-ads>li{list-style-type:none;float:left;padding:10px;}
+
+/************Modal****************/
+.modal-content {
+    padding-top: 6%;
+}

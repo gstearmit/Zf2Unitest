@@ -99,6 +99,8 @@ foreach($this->paginator as $key=>$value){
                     <td>
                       <span class="viewspan  btn btn-primary delete-video" style="float:right;"  id="<?php echo $this->escapeHtml($value['id']);?>" onClick="deleteuser('<?php echo $value['id'];?>');">Delete User
 					  </span> <!-- data-toggle="modal" data-target="#Modal-delete" -->
+					  
+					  <?php /* 
 					  </br>
 					     <span class="viewspan  btn btn-primary " style="float:right;"  value="<?php echo $this->escapeHtml($value['id']);?>">
 					     <a href="<?php echo WEBPATH.'/admin/videoofuser/'.$value['id'];?>"> All Video </a>  
@@ -129,7 +131,10 @@ foreach($this->paginator as $key=>$value){
 					      <span class="viewspan  btn btn-primary " style="float:right; margin-top: 2%;"  value="<?php echo $this->escapeHtml($value['id']);?>">
 					        <a href="<?php echo WEBPATH.'/admin/addminchangepass/'.$value['id'];?>"> Change Pass </a>  
 					      </span>
-					   -->    
+					   -->   
+					   */
+		                  ?>
+		                   
                     </td>
                   </tr>                
                 
@@ -199,7 +204,7 @@ $.ajax({
 		},
 		success: function(data){
 			$('.result-delete').html(data);
-				//location.reload();
+				location.reload();
 		}
 	});
 	return false;

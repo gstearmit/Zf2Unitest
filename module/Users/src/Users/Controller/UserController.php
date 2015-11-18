@@ -269,6 +269,7 @@ class UserController extends AbstractActionController
     	$userTable = $this->getServiceLocator()->get('Users\Model\UsersTable');
     	 
     	$status_delete = $userTable->delete($id);
+    	 
     	$viewModel->setVariables(array(
     			'status' => $status_delete,
     	));

@@ -408,7 +408,19 @@ class UsersTable extends AbstractTableGateway
     public function feed_sql($sql=null)
     {
     	if($sql== null)  return false;
-    	return  $resultSet = $this->adapter->query($sql, array(5));
+    	//return  $resultSet = $this->adapter->query($sql, array(5)); 
+    	return $resultSet = $this->adapter->query($sql, array(5));
+    	 
+    }
+    
+    public function sql_execu($sql)
+    {
+    	if($sql == null) return false;
+    	$db_config ='';
+    	$adapter = new \Zend\Db\Adapter\Adapter($db_config,null,new \Zend\Db\ResultSet\ResultSet('array'));
+    	$re = $adapter->query($sql, $adapter::QUERY_MODE_EXECUTE);
+    	$s = $re->current();
+    	var_dump($s);
     }
      
     /**
@@ -447,7 +459,8 @@ class UsersTable extends AbstractTableGateway
     	$id = (int)$id;
     	$sql= 'DELETE FROM users
                WHERE id ='.$id.';';
-    	return  $this->feed_sql($sql);
+        $this->feed_sql($sql);
+        return true;
     	 
     }
   
