@@ -42,9 +42,21 @@ class AlbumTable extends AbstractTableGateway
         $rowset = $this->select(array('id' => $id));
         $row = $rowset->current();
         if (!$row) {
-            throw new \Exception("Could not find row $id");
+            //throw new \Exception("Could not find row $id");
+            return $text_error = "Could not find row $id";
         }
         return $row;
+    }
+    
+    public function getCheck_Album($id)
+    {
+    	$id  = (int) $id;
+    	$rowset = $this->select(array('id' => $id));
+    	$row = $rowset->current();
+    	if (!$row) { 
+    		return false; // //throw new \Exception("Could not find row $id");
+    	}
+    	return $row;
     }
 
     public function saveAlbum(Album $album)
@@ -57,11 +69,13 @@ class AlbumTable extends AbstractTableGateway
         $id = (int)$album->id;
         if ($id == 0) {
             $this->insert($data);
+            return  $this->lastInsertValue;
         } else {
             if ($this->getAlbum($id)) {
-                $this->update($data, array('id' => $id));
+               return $this->update($data, array('id' => $id));
             } else {
-                throw new \Exception('Form id does not exist');
+                //throw new \Exception('Form id does not exist');
+                return false;
             }
         }
     }

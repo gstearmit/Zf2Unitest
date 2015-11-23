@@ -1,4 +1,23 @@
 <?php
+/*
+ * http://zf2-app.localhost:1996
+ * Listen 1996
+ <VirtualHost *:1996>
+    ServerName zf2-app.localhost
+    DocumentRoot D:/xampp/htdocs/Zf2Unitest/public
+    <Directory D:/xampp/htdocs/Zf2Unitest/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        <IfModule mod_authz_core.c>
+        Require all granted
+        </IfModule>
+    </Directory>
+</VirtualHost>
+ */
+
+
 chdir(dirname(__DIR__));
 define('DOMAIN_DIR'	, "zf2-app.localhost");
 define('APPLICATION_PATH23', realpath(dirname(__DIR__)));

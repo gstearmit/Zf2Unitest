@@ -44,7 +44,7 @@ class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
 
     public function testGetCanBeAccessed()
     {
-        $this->routeMatch->setParam('id', '1');
+        $this->routeMatch->setParam('id', '19');
 
         $result   = $this->controller->dispatch($this->request);
         $response = $this->controller->getResponse();
@@ -55,6 +55,7 @@ class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
     public function testCreateCanBeAccessed()
     {
         $this->request->setMethod('post');
+        $this->request->getPost()->set('id', '');
         $this->request->getPost()->set('artist', 'foo');
         $this->request->getPost()->set('title', 'bar');
 
@@ -66,7 +67,7 @@ class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
 
     public function testUpdateCanBeAccessed()
     {
-        $this->routeMatch->setParam('id', '1');
+        $this->routeMatch->setParam('id', '19');
         $this->request->setMethod('put');
 
         $result   = $this->controller->dispatch($this->request);
@@ -77,7 +78,7 @@ class AlbumRestControllerTest extends PHPUnit_Framework_TestCase
 
     public function testDeleteCanBeAccessed()
     {
-        $this->routeMatch->setParam('id', '1');
+        $this->routeMatch->setParam('id', '2');
         $this->request->setMethod('delete');
 
         $result   = $this->controller->dispatch($this->request);
