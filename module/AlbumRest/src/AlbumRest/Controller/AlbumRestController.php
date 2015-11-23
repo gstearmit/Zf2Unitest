@@ -110,30 +110,45 @@ class AlbumRestController extends AbstractRestfulController
     	}else { 
             // Insert 
             
-    		echo "fdfdfdfdfffdfdfdfdfdfd";
+    		 
     		
     		$form = new AlbumForm();
     		$album = new Album();
     		$form->setInputFilter($album->getInputFilter());
     		$form->setData($data);
-    		if ($form->isValid()) {
-    			$album->exchangeArray($form->getData());
-    			$id_insert = $this->getAlbumTable()->saveAlbum($album);
-    			$text_result = ''; 
-    			if($id_insert)
-    			{
-    				$text_result = 'Add Sucess';
-    				$_Response_data = $this->getData($id_insert);
-    			}else {
-    				$text_result = 'Add Error';
-    				$_Response_data = NULL;
-    			}
-    			 
-    			return new JsonModel(array(
-    					'status' => $text_result,
-    					'data'=> $_Response_data,
-    			));
-    		}
+    		
+    		try {
+    		
+	    		if ($form->isValid()) {
+	    			$album->exchangeArray($form->getData());
+	    			$id_insert = $this->getAlbumTable()->saveAlbum($album);
+	    			$text_result = ''; 
+	    			if($id_insert)
+	    			{
+	    				$text_result = 'Add Sucess';
+	    				$_Response_data = $this->getData($id_insert);
+	    			}else {
+	    				$text_result = 'Add Error';
+	    				$_Response_data = NULL;
+	    			}
+	    			 
+	    			return new JsonModel(array(
+	    					'status' => $text_result,
+	    					'data'=> $_Response_data,
+	    			));
+	    		}
+		    		else {
+		    			//die("khong hop le");
+		    			return new JsonModel(array(
+		    					'Error' => 'vui long check lai cac truong xem da dung dinh dang yeu cau',
+		    			));
+		    		}
+	    		} catch (\Exception $e) {
+	    			 echo "-99999999999ddsdsdsds";
+	    			return new JsonModel(array(
+	    					'Error' => $e->getMessage(), 
+	    			));
+	    		}
     	}
     }
 
