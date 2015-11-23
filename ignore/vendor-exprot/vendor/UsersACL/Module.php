@@ -49,6 +49,7 @@ class Module
         $controller = $event->getRouteMatch()->getParam('controller');
         $action = $event->getRouteMatch()->getParam('action');
         $session = new Container('User');
+         
         $controller = $event->getRouteMatch()->getParam('controller');
         $action = $event->getRouteMatch()->getParam('action');
         
@@ -60,13 +61,18 @@ class Module
                 'role_id'
             ));
              
-            if(empty($roleID)){ die('Permission denied , not set Permission'); }
             
+            if(empty($roleID)){
+            	//Super
+            	//echo "Permission Super";
+            	//die('Permission Super');  
+            }else {
+              //Permision Nomals
             $roleName = $roleTable->getUserRoles('rid = ' . $roleID[0]['role_id'], array(
                 'role_name'
             ));
             $userRole = $roleName[0]['role_name'];
-            
+             
             $acl = $serviceManager->get('Acl');
             $acl->initAcl();
             
@@ -74,6 +80,7 @@ class Module
             if (! $status) {
                 die('Permission denied');
             }
+           }// end  if(empty($roleID))
         }
     }
 
